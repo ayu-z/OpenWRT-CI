@@ -48,9 +48,9 @@ jobs:
       #默认主机名
       WRT_NAME: OWRT
       #默认WIFI名
-      WRT_WIFI: OWRT
+      WRT_WIFI: RAX3000M
       #默认地址
-      WRT_IP: 192.168.11.1
+      WRT_IP: 192.168.111.1
       #默认密码，仅作提示，修改无用
       WRT_PW: 无
       #源码链接
