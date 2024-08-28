@@ -3,7 +3,8 @@
 #修改默认主题
 sed -i "s/luci-theme-bootstrap/luci-theme-$WRT_THEME/g" $(find ./feeds/luci/collections/ -type f -name "Makefile")
 #修改默认WIFI名
-sed -i "s/\.ssid=.*/\.ssid=$WRT_WIFI/g" $(find ./package/kernel/mac80211/ ./package/network/config/ -type f -name "mac80211.*")
+# sed -i "s/\.ssid=.*/\.ssid=$WRT_WIFI/g" $(find ./package/kernel/mac80211/ ./package/network/config/ -type f -name "mac80211.*")
+sed -i "s/\.ssid=.*/\.ssid=${WRT_WIFI}-\${band_name}/g" $(find ./package/kernel/mac80211/ ./package/network/config/ -type f -name "mac80211.*")
 
 CFG_FILE="./package/base-files/files/bin/config_generate"
 #修改默认IP地址
@@ -54,7 +55,7 @@ else
 	echo "CONFIG_PACKAGE_luci=y" >> ./.config
 	echo "CONFIG_LUCI_LANG_zh_Hans=y" >> ./.config
 	echo "CONFIG_PACKAGE_luci-app-homeproxy=y" >> ./.config
-	echo "CONFIG_PACKAGE_luci-app-openclash=y" >> ./.config
+	# echo "CONFIG_PACKAGE_luci-app-openclash=y" >> ./.config
 	echo "CONFIG_PACKAGE_luci-app-passwall2=y" >> ./.config
 	echo "CONFIG_PACKAGE_luci-app-ssr-plus=y" >> ./.config
 fi
